@@ -32,7 +32,7 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Supervicion</a></li>
+            <li><a href="<?php echo base_url();?>fb"><i class="fa fa-circle-o"></i>Publicaciones</a></li>
             <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Generacion de reportes KPI's</a></li>
           </ul>
         </li>
