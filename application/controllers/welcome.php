@@ -30,6 +30,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('layout/footer');
 		
 	}
+
+	function likes(){
+
+		$this->load->view('estlikes');
+
+	}
 }
 
 /* End of file welcome.php */

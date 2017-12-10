@@ -33,7 +33,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url();?>fb"><i class="fa fa-circle-o"></i>Publicaciones</a></li>
-            <li><a href="<?php echo base_url();?>welcome"><i class="fa fa-circle-o"></i>Estadisticas de KPI's</a></li>
+            <li><a href="index.php/welcome"><i class="fa fa-circle-o"></i>Estadisticas de KPI's</a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url();?>like"><i class="fa fa-circle-o"></i>Estadisticas de Likes</a></li>
+             <li><a href="<?php echo base_url();?>comen"><i class="fa fa-circle-o"></i>Estadisticas de Comentarios</a></li>
+             <li><a href="<?php echo base_url();?>shares"><i class="fa fa-circle-o"></i>Estadisticas de Compartidas</a></li>
+          </ul>
+            </li>
           </ul>
         </li>
         <li class="treeview">
