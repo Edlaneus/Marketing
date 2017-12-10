@@ -16,7 +16,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
-        <li class="active treeview">
+        <li>
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Gestion de Publicaciones</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
