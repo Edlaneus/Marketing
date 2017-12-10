@@ -1,33 +1,34 @@
 <?php
+
 if(isset($_REQUEST['page']))
 {
  require_once('assets/db.php'); // Conexion a la Base de datos
  require_once( 'assets/config.php' ); // Archivo que contiene los datos de la aplicacion de fb (App_ID y el password secreto (App_Secret))
- $token = $config['App_ID']."|".$config['App_Secret']; // making app token by its id and secret
+ $token = $config['App_ID']."|".$config['App_Secret']; // Se genera el token con los datos del archivo config.php con el fin 													  //de evitar generar el token desde fuera, ya que solo dura dos horas  													//como maximo un token activo
  
- $pageDetails = getFacebookId(mysqli_real_escape_string($connection,$_REQUEST['page'])); // Get page details like name of page, page ID, Likes, people talking about that page.
+ $pageDetails = getFacebookId(mysqli_real_escape_string($connection,$_REQUEST['page'])); // Obetemos los detalles de la 																						   //pagina lo que buscamos (like, 																							  //comentarios, imagenes , etc.)
  if(!isset($pageDetails->id))
  {
- echo "Error Occured please provide a valid facebook page unique id / unique name";
+ echo "A ocurrido un error porfavor ingresa un id unico de una pagina de facebook / unico nombre de una pagina de facebook";
  exit;
  }
- $query = "SELECT * FROM pages where PageID='".$pageDetails->id."'"; // select page already in database or not query.
- $result = mysqli_query($connection,$query); // execute query
- $numResults = mysqli_num_rows($result); // number of records
- if($numResults>=1) // if page found in database then run update query
+ $query = "SELECT * FROM pages where PageID='".$pageDetails->id."'"; //Seleccionamos la Pagina que ya existe en la BD
+ $result = mysqli_query($connection,$query); // Ejecutamos el Query
+ $numResults = mysqli_num_rows($result); // numeros de Resultados
+ if($numResults>=1) // si la página se encuentra en la base de datos se ejecuta la consulta de actualización
  {
  $Results = mysqli_fetch_array($result);
  mysqli_query($connection,"UPDATE `pages` SET `Name` = '".mysqli_real_escape_string($connection,$pageDetails->name)."',`Likes` = '".$pageDetails->fan_count."',`Talking` = '".$pageDetails->talking_about_count."' 
  WHERE `id` ='".$Results['id']."' LIMIT 1");
  }
- else // else run insert query for new page
+ else //de lo contrario, ejecuta Insertar consulta para una nueva página
  {
  mysqli_query($connection,"INSERT INTO `pages` ( `id` , `PageID` , `Name` , `Likes` , `Talking` )
  VALUES 
  (NULL , '".$pageDetails->id."', '".$pageDetails->name."', '".$pageDetails->fan_count."', '".$pageDetails->talking_about_count."')");
  }
 
- feedExtract("",$pageDetails->id,$token); // This function will get feed of page.
+ feedExtract("",$pageDetails->id,$token); //Esta función obtendrá el feed de la página.
  header("Location: view.php");
  exit;
 }
@@ -37,42 +38,40 @@ if(isset($_REQUEST['page']))
 //  exit;
 // }
  
-// Function to get all feed of a page with like, comment and share count.
-function feedExtract($url="",$pageFBID) // $url contain url for next pages and $page contain page id
+// Función para obtener todo el feed de una página con me gusta, comentar, compartir, etc.
+function feedExtract($url="",$pageFBID) // $ url contiene la url para las páginas siguientes y $ page contiene la 												   //identificación de la página
 {
- global $token, $connection; // database connection and tocken required
+ global $token, $connection; // conexión de base de datos y token requerido
  
- $url = "https://graph.facebook.com/v2.6/$pageFBID/feed?fields=picture,message,story,created_time,shares,likes.limit(1).summary(true),comments.limit(1).summary(true)&access_token=";
- // first time fetch page posts
+ $url = "https://graph.facebook.com/v2.11/$pageFBID/feed?fields=picture,message,story,created_time,shares,likes.limit(1).summary(true),comments.limit(1).summary(true)&access_token=";
+// publicaciones de búsqueda por primera vez
  $response = file_get_contents($url.$token);
  
- $query = "SELECT id FROM pages where pageID='".$pageFBID."'"; // select feed already in database or not query.
- $result = mysqli_query($connection,$query); // execute query
+ $query = "SELECT id FROM pages where pageID='".$pageFBID."'";// seleccione feed ya en la base de datos.
+ $result = mysqli_query($connection,$query); // ejecuta el query
  $fieldID = mysqli_fetch_row($result);
  $pageID = $fieldID['0'];
- // decode json data to array
+// decodifica los datos del vector en un json
  $get_data = json_decode($response,true);
- // loop extract data
+// ciclo que extre los datos
  for($ic=0;$ic<count($get_data['data']);$ic++)
  {
- // Exracting Day, Month, Year
+ // Día, mes y año de extracción
  $date = date_create($get_data['data'][$ic]['created_time']);
  $newDate = date_format($date,'Y-m-d H:i:s');
  
- 
- // $story of post in if link, video or image it will return "message" plain status as "story"
  $story = $get_data['data'][$ic]['message'];
  
  if(!isset($story))
  $story = $get_data['data'][$ic]['story'];
  
  
- $query = "SELECT id FROM feed where PostID='".$get_data['data'][$ic]['id']."'"; // select page id from pages table.
- $result = mysqli_query($connection,$query); // execute query
- $numResults = mysqli_num_rows($result); // number of records
- if($numResults>=1) // if post found in database then run update query
+ $query = "SELECT id FROM feed where PostID='".$get_data['data'][$ic]['id']."'"; 
+ $result = mysqli_query($connection,$query); 
+ $numResults = mysqli_num_rows($result); 
+ if($numResults>=1) 
  {
- //Update Record
+ //Se actualizan Resultados
  mysqli_query($connection,"update `feed` set 
  `Comments` = '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['comments']['summary']['total_count'])."' , 
  `Likes` = '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['likes']['summary']['total_count'])."', 
@@ -82,7 +81,7 @@ function feedExtract($url="",$pageFBID) // $url contain url for next pages and $
  else
  {
  
- // Puting data in sql query values
+ // se ponen los datos en valores de consulta
  $dataFeed = "(
  '".mysqli_real_escape_string($connection,$pageID)."', 
  '".mysqli_real_escape_string($connection,$newDate)."',
@@ -101,12 +100,12 @@ function feedExtract($url="",$pageFBID) // $url contain url for next pages and $
  return 1;
 }
 
-function getFacebookId($pageID) // This function return facebook page details by its url
+function getFacebookId($pageID) // Esta función devuelve los detalles de la página de Facebook por su URL
 {
- // get token from main file
+ // Se obtiene token del archivo principal
  global $token; 
  $json = file_get_contents('https://graph.facebook.com/'.$pageID.'?fields=fan_count,talking_about_count,name&access_token='.$token); 
- // decode returned json data in arrau.
+ // se decodifica el feed en un jso
  $json = json_decode($json);
  return $json;
 }

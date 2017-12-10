@@ -33,7 +33,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url();?>fb"><i class="fa fa-circle-o"></i>Publicaciones</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Generacion de reportes KPI's</a></li>
+            <li><a href="<?php echo base_url();?>welcome"><i class="fa fa-circle-o"></i>Estadisticas de KPI's</a></li>
           </ul>
         </li>
         <li class="treeview">
