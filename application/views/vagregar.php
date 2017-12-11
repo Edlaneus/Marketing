@@ -1,6 +1,6 @@
    <div class="container">
 
-       <form class="form-horizontal" action="<?php echo base_url();?>cagregar/guardar" method="POST">
+       <form class="form-horizontal" action="<?php echo base_url();?>cagregar/guardar" enctype="multipart/form-data" method="POST" >
 
        		<div class="form-group">
     		  <label class="col-sm-2 control-label">Nombre</label>
@@ -11,7 +11,7 @@
         	<div class="form-group">
          	  <label class="col-sm-2 control-label">Fecha</label>
           <div class="col-sm-4">
-               <input type="date" class="form-control" name="datFecI" placeholder="Fecha de evento">
+               <input type="text" class="form-control" name="datFecI" placeholder="Fecha de evento">
             </div>
          </div>
        		<div class="form-group">

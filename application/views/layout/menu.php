@@ -16,7 +16,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
-        <li>
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Gestion de Publicaciones</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -32,14 +32,8 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url();?>fb"><i class="fa fa-circle-o"></i>Publicaciones</a></li>
-            <li><a href="index.php/welcome"><i class="fa fa-circle-o"></i>Estadisticas de KPI's</a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo base_url();?>like"><i class="fa fa-circle-o"></i>Estadisticas de Likes</a></li>
-             <li><a href="<?php echo base_url();?>comen"><i class="fa fa-circle-o"></i>Estadisticas de Comentarios</a></li>
-             <li><a href="<?php echo base_url();?>shares"><i class="fa fa-circle-o"></i>Estadisticas de Compartidas</a></li>
-          </ul>
-            </li>
+            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Supervicion</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Generacion de reportes KPI's</a></li>
           </ul>
         </li>
         <li class="treeview">

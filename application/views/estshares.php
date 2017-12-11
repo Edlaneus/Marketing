@@ -71,7 +71,7 @@ $(function () {
     <div class="row">
         <div class="col-lg-12" style="background-color: #3f6699; margin: 0 auto; text-align: center">
             <h1 style="color: white">Facebook</h1>
-                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;">
+                <div id="container" style="min-width: 310px; height: 600px; margin: 0 auto;">
                 </div>
                 <a href="<?php echo base_url();?>fb" style="margin: 0 auto; color: white; font-size: 35px; display: inline-block;">Regresar</a>
         </div>

@@ -6,7 +6,7 @@ class Mcalendar extends CI_Model
 {
 	
 	public function getEventos(){
-		$this->db->select('id_Evento id, nombre_evento title, fecInicio start, descripcion end');
+		$this->db->select('id_Evento id, nombre_evento title, fecInicio start, descripcion contenido');
 		$this->db->from('eventos');
 
 		return $this->db->get()->result();

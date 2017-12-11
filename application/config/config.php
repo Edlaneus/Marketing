@@ -22,7 +22,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://127.0.0.1/marketing/';
+$config['base_url'] = 'http://localhost:8080/marketing/';
 
 /*
 |--------------------------------------------------------------------------
@@ -368,11 +368,3 @@ $config['proxy_ips'] = '';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
-
-/*
-----------------------------------------------------------------------------
-Datos de la Aplicación de Facebook
-----------------------------------------------------------------------------
-*/
-$config['App_ID']      =   '901937589971457';
-$config['App_Secret']  =   '2f1ebae3ff0bf0f3e7a6e1554a2e1e22'; 

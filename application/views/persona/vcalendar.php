@@ -30,7 +30,7 @@
 			function(data){
 				//alert(data);
 
-				$('#calendar').fullCalendar({
+				$('#calendario').fullCalendar({
 					header: {
 						left: 'prev,next today',
 						center: 'title',
@@ -88,19 +88,20 @@
 					},
 					eventClick: function(event, jsEvent, view){
 						
+						
 						$('#mhdnIdEvento').val(event.id);
 						$('#mtitulo').html(event.title);
 						$('#txtBandaRP').val(event.title);
+						$('#txtWeb').val(event.contenido);
 				    	$('#modalEvento').modal();
 				    	if (event.url) {
 				    		window.open(event.url);
 				    		return false;
 				    	};
 
-						//$('#calendar').fullCalendar( 'removeEvents', event.id);
-						//alert(event.title + " - " + event.id);
-
 					},
+
+					
  					eventRender: function(event, element) {
  						var el = element.html();
 				        element.html("<div style='width:90%;float:left;'>" + el + "</div>" + 
@@ -171,7 +172,7 @@
 </head>
 <body>
 
-	<div id='calendar'></div>
+	<div id='calendario'></div>
 
 
 	<!-- Modal Cierre -->
@@ -197,7 +198,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label for="inputEmail3" class="col-sm-2 control-label">Contenido</label>
+	                  <label for="inputEmail3" class="col-sm-2 control-label">Descripcion del evento</label>
 
 	                  <div class="col-sm-10">
 	                    <input type="text" class="form-control" id="txtWeb">

@@ -45,7 +45,7 @@ function feedExtract($url="",$pageFBID) // $ url contiene la url para las págin
  
  $url = "https://graph.facebook.com/v2.11/$pageFBID/feed?fields=picture,message,story,created_time,shares,likes.limit(1).summary(true),comments.limit(1).summary(true)&access_token=";
 // publicaciones de búsqueda por primera vez
- $response = file_get_contents($url.$token);
+ $response = file_get_contents_curl($url.$token);
  
  $query = "SELECT id FROM pages where pageID='".$pageFBID."'";// seleccione feed ya en la base de datos.
  $result = mysqli_query($connection,$query); // ejecuta el query
@@ -104,7 +104,7 @@ function getFacebookId($pageID) // Esta función devuelve los detalles de la pá
 {
  // Se obtiene token del archivo principal
  global $token; 
- $json = file_get_contents('https://graph.facebook.com/'.$pageID.'?fields=fan_count,talking_about_count,name&access_token='.$token); 
+ $json = file_get_contents_curl('https://graph.facebook.com/'.$pageID.'?fields=fan_count,talking_about_count,name&access_token='.$token); 
  // se decodifica el feed en un jso
  $json = json_decode($json);
  return $json;
