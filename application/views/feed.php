@@ -32,11 +32,11 @@ if(isset($_REQUEST['page']))
  header("Location: view.php");
  exit;
 }
-// else
-// {
-//  header("Location: index.php");
-//  exit;
-// }
+else
+{
+ header("Location: index.php");
+ exit;
+}
  
 // Función para obtener todo el feed de una página con me gusta, comentar, compartir, etc.
 function feedExtract($url="",$pageFBID) // $ url contiene la url para las páginas siguientes y $ page contiene la 												   //identificación de la página
@@ -89,7 +89,7 @@ function feedExtract($url="",$pageFBID) // $ url contiene la url para las págin
  '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['picture'])."',
  '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['comments']['summary']['total_count'])."',
  '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['likes']['summary']['total_count'])."',
- '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['shares']['count'])."',
+ '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['shares']['total_count'])."',
  '".mysqli_real_escape_string($connection,$get_data['data'][$ic]['id'])."')";
  
  mysqli_query($connection,"INSERT INTO `feed` (`PageID` , `Date` , `Post` , `Picture` , `Comments` , `Likes` , `Shares` , `PostID` ) VALUES $dataFeed");

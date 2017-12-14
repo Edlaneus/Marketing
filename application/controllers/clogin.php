@@ -23,6 +23,7 @@ class Clogin extends CI_Controller
 		$res = $this->mlogin->ingresar($usu,$pass);
 
 		if ($res == 1) {
+			
 			$this->load->view('layout/header');
 			$this->load->view('layout/menu');
 			$this->load->view('persona/vupdpersona');

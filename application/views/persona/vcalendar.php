@@ -198,7 +198,7 @@
 	                  </div>
 	                </div>
 	                <div class="form-group">
-	                  <label for="inputEmail3" class="col-sm-2 control-label">Descripcion del evento</label>
+	                  <label for="inputEmail3" class="col-sm-2 control-label">Contenido de la publicacíón</label>
 
 	                  <div class="col-sm-10">
 	                    <input type="text" class="form-control" id="txtWeb">

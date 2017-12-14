@@ -16,35 +16,52 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Gestion de Publicaciones</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-dashboard"></i> <span>Gestion de Publicaciones</span> 
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url();?>Ccalendar"><i class="fa fa-circle-o"></i> Calendario</a></li>
-             <li><a href="<?php echo base_url();?>cagregar"><i class="fa fa-circle-o"></i> Agregar evento</a></li>
+             <li><a href="<?php echo base_url();?>cagregar"><i class="fa fa-circle-o"></i> Agregar publicación</a></li>
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Administrar Publicaciones</span>
-            <i class="fa fa-angle-left pull-right"></i>
+            <i class="glyphicon glyphicon-stats"></i> <span>Administrar Publicaciones</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Supervicion</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Generacion de reportes KPI's</a></li>
+            <li><a href="<?php echo base_url();?>fb"><i class="fa fa-circle-o"></i> Publicaciones</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Generacion de reportes KPI's</a>
+            <ul class="treeview-menu">
+            <li><a href="<?php echo base_url();?>like"><i class="fa fa-circle-o"></i>Reporte de Likes</a></li>
+            <li><a href="<?php echo base_url();?>comen"><i class="fa fa-circle-o"></i>Reporte de Comentarios</a></li>
+            <li><a href="<?php echo base_url();?>shares"><i class="fa fa-circle-o"></i>Reporte de Compartidos</a></li>
+          </ul>
+            </li>
           </ul>
         </li>
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Nuevas opciones</span>
+            <i class="fa fa-table"></i> <span>Administrar Usuarios</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Indefinida</a></li>
+            <li><a href="<?php echo base_url();?>registro"><i class="fa fa-circle-o"></i>Agregar Usuario</a></li>
+            <li><a href="<?php echo base_url();?>verusr/listauser"><i class="fa fa-circle-o"></i>Ver Usuarios</a>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i><span>Nuevas opciones(Desarrollo)</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url();?>publicar"><i class="fa fa-circle-o"></i>Publicacion</a></li>
+            <!-- <li><a href="<?php echo base_url();?>page"><i class="fa fa-circle-o"></i>Paginas Feed</a></li> -->
+          </ul>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

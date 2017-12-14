@@ -59,7 +59,7 @@ class Ccalendar extends CI_Controller
 		$id = $this->input->post('id');
 		$r = $this->Mcalendar->deleteEvento($id);
 		echo $r;
-	}
+	}*/
 
 	public function updEvento2(){
 		$param['id'] = $this->input->post('id');
@@ -68,6 +68,7 @@ class Ccalendar extends CI_Controller
 
 		$r = $this->Mcalendar->updEvento2($param);
 
-		echo $r;*/
+		echo $r;
 	
+}
 }
