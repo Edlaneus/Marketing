@@ -12,12 +12,14 @@ class Mpersona extends CI_Model
 
 	public function guardar($param){
 		$campos = array(
-			'dni' => $param['dni'],
+			
 			'nombre' => $param['nombre'],
 			'appaterno' => $param['appaterno'],
-			'apmaterno' => $param['apmaterno'],
+			
 			'email' => $param['email'],
-			'fecnac' => date('Y-m-d',strtotime(str_replace('/','-',$param['fecnac'])))
+			'tipo_usuario' => $param['tipo_usuario'],
+			'fecnac' => date('Y-m-d H:i:s'),
+//			'fecnac' => $param['fecnac'],			
 		);
 
 		$this->db->insert('persona',$campos);

@@ -93,6 +93,8 @@
 						$('#mtitulo').html(event.title);
 						$('#txtBandaRP').val(event.title);
 						$('#txtWeb').val(event.contenido);
+						$('#txtImagen').val(event.titulo);
+						$('#txtImg').val(event.imagen);
 				    	$('#modalEvento').modal();
 				    	if (event.url) {
 				    		window.open(event.url);
@@ -204,6 +206,14 @@
 	                    <input type="text" class="form-control" id="txtWeb">
 	                  </div>
 	                </div>
+	                <div class="form-group">
+	                  <label for="inputEmail3" class="col-sm-2 control-label">Nombre de la imagen</label>
+
+	                  <div class="col-sm-10">
+	                    <input type="text" class="form-control" id="txtImagen">
+	                  </div>
+	                </div>
+	                
 	              </div>
 	            </form>
 	      </div>
@@ -221,6 +231,7 @@
 		var nome = $('#txtBandaRP').val();
 		var web = $('#txtWeb').val();
 		var ide = $('#mhdnIdEvento').val();
+
 
 		$.post("<?php echo base_url();?>ccalendar/updEvento2",
 		{

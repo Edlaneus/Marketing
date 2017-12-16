@@ -56,11 +56,17 @@
                                 </div>
                             </div>
                             <div class="form-group clearfix">
-                                <label class="col-lg-2 control-label " for="dep">Departamento*</label>
+                                <label class="col-lg-2 control-label " for="wfirstName2"> Tipo de usuario: <span class="danger"></span> </label>
                                 <div class="col-lg-10">
-                                    <input id="dep" name="dep" type="text" class="required email form-control">
-                                </div>
+                                    <input id="usuario" name="usuario" type="text" class="required email form-control">
+                                </div>                                                    
                             </div>
+                            <!--<div class="form-group clearfix">
+                                <label class="col-lg-2 control-label " for="wfirstName2"> Fecha de Registro: <span class="danger"></span> </label>
+                                <div class="col-lg-10">
+                                    <input id="email" name="fRegistro" type="date" class="required email form-control">
+                                </div>                                                    
+                            </div>-->
                             <div class="form-group clearfix" style="margin-top: 2%;">
                                 <label class="col-lg-12 control-label ">(*) Campos Obligatorios</label>
                             </div>
@@ -76,3 +82,7 @@
     </div> <!-- end col -->
 
 </div> <!-- End row -->
+
+<script type="text/javascript">
+    var baseurl = "<?php echo base_url(); ?>";
+</script>

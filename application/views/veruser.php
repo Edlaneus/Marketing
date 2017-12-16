@@ -13,7 +13,8 @@
                             <th>Nombre</th>
                             <th>Apellido Paterno</th>
                             <th>Email</th>
-                            <th>Fecha de Nacimiento</th>
+                            <th>Fecha de Registro</th>
+                            <th>Tipo de Usuario</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -24,6 +25,7 @@
                                         <td><?php echo $persona[$i]['appaterno']; ?></td>
                                         <td><?php echo $persona[$i]['email']; ?></td>
                                         <td><?php echo $persona[$i]['fecnac']; ?></td>
+                                        <td><?php echo $persona[$i]['tipo_usuario']; ?></td>
                                         <td>
                                             <a href="<?php echo base_url();?>verusr/editestacion/<?php echo $persona[$i]['idPersona']; ?> "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>               
                                          </td> 

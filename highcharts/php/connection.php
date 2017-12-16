@@ -1,3 +1,3 @@
 <?php 
-	$connection = mysqli_connect("localhost","root","","database");
+	$connection = mysqli_connect("localhost","root","","feedfb");
 ?>

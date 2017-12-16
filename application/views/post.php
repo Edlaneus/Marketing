@@ -92,16 +92,17 @@
 	
 	//-------------------------------------------------------
 	
-	$access_token	= "EAACEdEose0cBAOuuN2plB52p8n9puSwXAvT3b3UlbZAhce5TxgHMfdliJlszVNrWXKsK0Sj3HJJOtixURiMZAtU9eEWvQuZBTHZBjK3Q1RyYVFGxIoqlkvNwHtDj0fz9oJvxRzzxoqRj9kuw6tBKHNK8hbhZA7vUVIHDEcDkXEApsWa6y6fwRGZAVFRMWlZCpMIKHQiucZAhZAwZDZD";
-	$id_page 		= "140787736580148";
-	$msg 			= "Esperando Respuesta 🙏";
-	$img_url 		= "https://i.pinimg.com/originals/8d/93/23/8d93236238d175b8bf779f46862e8d71.png";
+	$access_token	= "EAACEdEose0cBAF4AbdwwYyzYDcDGmRgzJyLwEE6ZBLzXWLSqYuD6IFZCidNKgucStKNULrOZB6GOQqVcRc3L1EKVePyUXEZApd8yjuBAY54upGNqZCMZCyXuS9WGPw8FZB3nvGU5cQ8td87TP3IbRK3lHHJosLDBZAKQ3oCXJVwcAb5LKqmy5ZBh1cqwaejY7Hi8ZD";
+	$id_page 		= "344806002657871";
+	$msg 			= "Presentacion de Proyectos de MKT Digital";
+	$img_url 		= "https://www.carrerasenlinea.mx/logos/original/logo-instituto-tecnologico-de-colima.png";
 	$post_on 		= "PAGE";
 	
 	//Se realiza el Post($access_user_token, $msg, $img_url, $post_as)
 	posting($access_token, $id_page, $msg, $img_url, $post_on);
 
 //Imagenes
+	//https://i.pinimg.com/originals/8d/93/23/8d93236238d175b8bf779f46862e8d71.png
 	//https://udemy-images.udemy.com/course/750x422/657590_edac_3.jpg
 	//https://cdn23.merca20.com/wp-content/uploads/2017/10/bigstock-Digital-Marketing-New-Startup-190890487.jpg
 ?>

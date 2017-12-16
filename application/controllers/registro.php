@@ -10,6 +10,8 @@ class registro extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('muser');
+		$this->load->model('mpersona');
+		$this->load->model('musuario');
 	}
 
 	public function index(){
@@ -22,7 +24,26 @@ class registro extends CI_Controller
 
 	function newusuario(){
 
-		$this->form_validation->set_rules('userName', 'nomUsuario', 'required');
+		$param['nombre'] = $this->input->post('name');
+		$param['appaterno'] = $this->input->post('app');
+		$param['email'] = $this->input->post('email');
+		$param['tipo_usuario'] = $this->input->post('usuario');
+		//$param['fecnac'] = $this->input->post('fRegistro');
+		
+		//Capturamos datos del usuario
+		$paramUsu['nomUsuario'] = $this->input->post('userName');
+		$paramUsu['clave'] = $this->encrypt->sha1($this->input->post('password'));
+		//llamamos el modelo con su funcion guardar para guardar los datos
+		$lastId = $this->mpersona->guardar($param);
+
+		if ($lastId > 0){
+			$paramUsu['idPersona'] = $lastId;
+			$this->musuario->guardarUsuario($paramUsu);
+		}
+				redirect('verusr/listauser');
+
+
+		/*$this->form_validation->set_rules('userName', 'nomUsuario', 'required');
 		$this->form_validation->set_rules('password', 'Clave', 'trim|required|matches[confclave]');		
 
         if ($this->form_validation->run() == FALSE) {
@@ -45,7 +66,7 @@ class registro extends CI_Controller
 			$datos['Clave'] = crypt($cve, '$2y$10$' . $salt);
 	        $this->muser->agregarusuario($datos);
 	        $this->load->view('registrar');
-        } 
+        } */
 
   //       $this->form_validation->set_rules('name', 'nombre', 'required');
 		// $this->form_validation->set_rules('app', 'appaterno', 'required');
@@ -75,7 +96,7 @@ class registro extends CI_Controller
 		// 	$this->load->view('assets/footer');  
 	 //    }
 	}
-
+	
 	// function addusr(){
 
 	// }

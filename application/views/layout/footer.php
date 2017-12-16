@@ -59,6 +59,10 @@
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
+<?php if($this->uri->segment(1)=='registro') {?> 
+        <script src="<?php echo base_url(); ?>js/persona.js"></script>
+<?php }?>
+
 <!-- script del proyecto -->
 
 

@@ -49,10 +49,10 @@
                         </div>
 
                     <div class="form-group">
-                      <label for="fecnac" class="col-sm-2 control-label">Fecha de Nacimiento</label>
+                      <label for="fecnac" class="col-sm-2 control-label">Tipo de usuario</label>
                       <div class="col-sm-10">
                          <input type="text" class="form-control" id="fecnac" name="fecnac" 
-                           value="<?php echo $persona['fecnac'] ?>">
+                           value="<?php echo $persona['tipo_usuario'] ?>">
                       </div>
                         </div>
 

@@ -9,6 +9,7 @@ class verusr extends CI_Controller
         {
             parent::__construct();
             $this->load->model('muser');
+
         }
 
     public function listauser(){
@@ -33,14 +34,14 @@ class verusr extends CI_Controller
             $datos['nombre']=$this->input->post("nom");
             $datos['appaterno']=$this->input->post("appaterno");
             $datos['email']=$this->input->post("email");
-            $datos['fecnac']=$this->input->post("fecnac");
+            $datos['tipo_usuario']=$this->input->post("fecnac");
 
             $this->muser->updateestacion($datos,$id);       
             $this->listauser();
     }
     
     function deleteestacion($id){
-        $this->mestacion->delestacion($id); 
+        $this->muser->delestacion($id); 
         $this->listauser();      
     }
 
