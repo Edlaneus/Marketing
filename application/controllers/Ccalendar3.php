@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Ccalendar extends CI_Controller
+class Ccalendar3 extends CI_Controller
 {
 	
 	function __construct()
@@ -13,8 +13,8 @@ class Ccalendar extends CI_Controller
 
 	public function index(){
 		$this->load->view('layout/header');
-		$this->load->view('layout/menu');
-		$this->load->view('persona/vcalendar');//MODIFICAR PARA USUARIO TIPO 2
+		$this->load->view('layout/menu3');
+		$this->load->view('persona/vcalendar3');//MODIFICAR PARA USUARIO TIPO 2
 		$this->load->view('layout/footer');
 	}
 
